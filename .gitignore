@@ -1,0 +1,22 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Tensorflow build files
+*.h
+*.so
+*.dll
+
+# VS Code
+.vscode/
+
+# Environment variables
+.env
+
+emotion_model.h5
+LICENSE
+package-lock.json
