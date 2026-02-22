@@ -191,3 +191,24 @@ class Camera:
             writer.writerow([])
             writer.writerow(["Most Prominent Reaction", dominant])
             writer.writerow(["Engagement Score", engagement_score])
+    
+    def get_session_stats(self):
+        total = sum(self.emotion_counts.values())
+
+        if total == 0:
+            return {
+                "dominant_emotion": None,
+                "engagement_score": 0,
+                "distribution": self.emotion_counts
+            }
+
+        dominant = max(self.emotion_counts, key=self.emotion_counts.get)
+
+        positive = self.emotion_counts["Happy"] + self.emotion_counts["Surprise"]
+        engagement_score = (positive / total) * 100
+
+        return {
+            "dominant_emotion": dominant,
+            "engagement_score": round(engagement_score, 2),
+            "distribution": self.emotion_counts
+        }
