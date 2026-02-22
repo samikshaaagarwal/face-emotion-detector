@@ -25,7 +25,7 @@ EMOTION_VALUES = {
 
 class Camera:
     def __init__(self, model_path, cascade_path):
-        self.cap = cv2.VideoCapture(0)
+        self.cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
         self.face_cascade = cv2.CascadeClassifier(cascade_path)
         self.emotion_model = EmotionModel(model_path)
         self.emotion_labels = self.emotion_model.emotion_labels
